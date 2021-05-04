@@ -1,0 +1,86 @@
+body 
+    font-family: $font
+    overflow-x: hidden
+    background-color:  map-get($colorMap, back);
+
+
+h2, h3, h4
+	font-weight: map-get($textWeightsMap, bold)
+
+h1 
+    display: inline-block
+    font-size: map-get($textSizeMap, l)
+    font-weight: map-get($textWeightsMap, bolder)
+    color:  map-get($colorMap, back);
+    margin: .8rem
+    @include media (sm)
+        font-size: map-get($textSizeMap, m)
+   
+h2 
+    font-size: map-get($textSizeMap, l)
+    
+
+h3 
+    font-size: map-get($textSizeMap, m)
+
+h4
+    font-size: map-get($textSizeMap, m)
+
+p 
+	font-size: map-get($textSizeMap, s)
+	@include media (sm)
+		font-size: map-get($textSizeMap, xs)
+	
+    
+.bold 
+    font-weight: map-get($textWeightsMap, bold)
+
+.text-c
+    text-align: center
+
+.line-height-0
+    line-height: 1
+
+
+
+.text-sub
+    text-decoration: line-through
+
+.i-block
+    display: inline-block
+
+
+// tamaño de fuentes
+
+@each $size in $textSizeMap 
+  $key: nth($size, 1)
+  $valor: nth($size, 2)
+  .font-#{$key} 
+    font-size: $valor !important
+
+
+@each $size in $vp
+    $key: nth($size, 1)
+    $value: nth($size, 2)
+    @media screen and(min-width: $value)
+        @each $i in $textSizeMap 
+            $k: nth($i, 1)
+            $valor: nth($i, 2)
+            .font-#{$key}-#{$k}
+                font-size: $valor !important
+
+
+
+//font-weight
+@each $weight in $textWeightsMap 
+  $key: nth($weight, 1)
+  $value: nth($weight, 2)
+  .w-#{$key} 
+    font-weight: $value !important
+  
+
+
+            
+
+
+

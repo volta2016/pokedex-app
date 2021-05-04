@@ -1,0 +1,101 @@
+//modal
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.75);
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.modal__close {
+	@include flexBetCen;
+	border-radius: 50%;
+	height: 45px;
+	margin: 25px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 45px;
+}
+
+.modal__close:hover {
+	background-color: map-get($colorMap, pokered);
+	cursor: pointer;
+}
+
+.modal__close-icon {
+	height: 20px;
+	width: 20px;
+	fill: map-get($colorMap, white);
+}
+
+//pokémon-details modal
+.modal__container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+	width: 400px;
+	height: 490px;
+	padding: 1.5rem 1rem;
+	box-sizing: border-box;
+	border-radius: 10px;
+	background-image: url("../../img/pokeball-400x490.jpg");
+	background-position: center center;
+	background-repeat: no-repeat;
+	position: relative;
+	animation-name: modalIn;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+	@include media(sm) {
+		width: 300px;
+	}
+	& img {
+		height: 90px;
+		margin-top: 1.5rem;
+	}
+	& h3 {
+		text-transform: uppercase;
+	}
+}
+@keyframes modalIn {
+	from {
+		transform: translateY(-1000px);
+	}
+	40% {
+		transform: translateY(10px);
+	}
+	60% {
+		transform: translateY(-10px);
+	}
+	80% {
+		transform: translateY(5px);
+	}
+	to {
+		transform: translateY(0);
+	}
+}
+@keyframes modalOut {
+	from {
+		transform: translateY(0);
+	}
+	40% {
+		transform: translateY(10px);
+	}
+	60% {
+		transform: translateY(-10px);
+	}
+	80% {
+		transform: translateY(5px);
+	}
+	to {
+		transform: translateY(-1000px);
+	}
+}

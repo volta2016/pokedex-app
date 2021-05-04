@@ -1,0 +1,81 @@
+//margin y padding global desktop
+@each $space in $spaceMap 
+  $key: nth($space, 1)
+  $value: nth($space, 2)
+  .m-#{$key} 
+    margin: $value !important
+  .mx-#{$key} 
+    margin-left: $value !important
+    margin-right: $value !important
+  .my-#{$key} 
+    margin-top: $value !important
+    margin-bottom: $value !important
+  .mt-#{$key} 
+    margin-top: $value !important
+  .mb-#{$key} 
+    margin-bottom: $value !important
+  .ml-#{$key} 
+    margin-left: $value !important
+  .mr-#{$key} 
+    margin-right: $value !important
+  .p-#{$key} 
+    padding: $value !important
+  .px-#{$key} 
+    padding-left: $value !important
+    padding-right: $value !important
+  .py-#{$key} 
+    padding-top: $value !important
+    padding-bottom: $value !important
+  .pt-#{$key} 
+    padding-top: $value !important
+  .pb-#{$key} 
+    padding-bottom: $value !important
+  .pl-#{$key} 
+    padding-left: $value !important
+  .pr-#{$key} 
+    padding-right: $value !important
+
+//margin y padding responsive
+@each $size in $vp
+    $key: nth($size, 1)
+    $value: nth($size, 2)
+    @media screen and(min-width: $value)
+        @each $space in $spaceMap
+            $k: nth($space, 1)
+            $v: nth($space, 2)  
+            .m-#{$key}-#{$k} //first margin
+                margin: $v !important
+            .mx-#{$key}-#{$k}
+                margin-left: $v !important
+                margin-right: $v !important
+            .my-#{$key}-#{$k}
+                margin-top: $v !important
+                margin-bottom: $v !important
+            .mt-#{$key}-#{$k}
+                margin-top: $v !important
+            .mb-#{$key}-#{$k}
+                margin-bottom: $v !important
+            .ml-#{$key}-#{$k}
+                margin-left: $v !important
+            .mr-#{$key}-#{$k}
+                margin-right: $v !important
+            .p-#{$key}-#{$k} //second padding
+                padding: $v !important
+            .px-#{$key}-#{$k}
+                padding-left: $v !important
+                padding-right: $v !important
+            .py-#{$key}-#{$k}
+                padding-top: $v !important
+                padding-bottom: $v !important
+            .pt-#{$key}-#{$k}
+                padding-top: $v !important
+            .pb-#{$key}-#{$k}
+                padding-top: $v !important
+            .pl-#{$key}-#{$k}
+                padding-left: $v !important
+            .pr-#{$key}-#{$k}
+                padding-right: $v !important
+                
+.m-auto
+  margin: auto
+  

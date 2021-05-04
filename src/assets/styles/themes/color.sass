@@ -1,0 +1,9 @@
+@each $color in $colorMap
+    $key: nth($color, 1)
+    $value: nth($color, 2)
+    .color-#{$key}
+        color: $value !important
+    .back-#{$key}
+        background-color: $value !important
+
+

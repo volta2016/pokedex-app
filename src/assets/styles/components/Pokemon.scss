@@ -1,0 +1,232 @@
+// card
+.pokedex-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 18px;
+	padding: 20px 10px 20px 10px;
+	min-height: 80vh;
+	@include media(lg2) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	@include media(intermediate) {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}
+
+.pokemon-card {
+	display: flex;
+	box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.25);
+	border-radius: 3px;
+	height: 106px;
+	&__img-container {
+		border-radius: 50%;
+		padding: 0.4rem;
+		margin: 0.5rem;
+		cursor: pointer;
+		width: 65px;
+		height: 65px;
+		background-color: map-get($colorMap, pokegrayone);
+		.pokemon-img {
+			height: 50px;
+			width: 50px;
+		}
+	}
+	&__card-body {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding: 10px 10px 10px 10px;
+		flex: 1;
+		.card-top h3 {
+			text-transform: capitalize;
+			display: inline-block;
+			margin-right: 0.8rem;
+			font-size: 14px;
+			@include media(md) {
+				margin-right: 0.5rem;
+				font-size: 12px;
+			}
+		}
+		.card-top b {
+			font-size: 12px;
+		}
+		.card-top {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			& button {
+				max-width: 110px;
+				padding: 0.5rem;
+				display: block;
+				width: 100%;
+				font-size: 14px;
+				margin-bottom: 0.5rem;
+				border: none;
+				border-radius: 4px;
+				cursor: pointer;
+				box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.25);
+				background-color: map-get($colorMap, back);
+				transition: 0.3s;
+			}
+			& button:hover {
+				background-color: map-get($colorMap, pokegrayone);
+			}
+			& div {
+				@include media(sm) {
+					margin-right: 0.5rem;
+					display: flex;
+					flex-direction: column;
+				}
+			}
+		}
+		.card-bottom {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			.pokemon-type {
+				display: flex;
+				.pokemon-type-text {
+					margin-right: 10px;
+					text-transform: capitalize;
+				}
+				.pokemon-type-text p {
+					margin: 0;
+				}
+			}
+		}
+		.pokemon-heart-btn {
+			border: none;
+			background-color: map-get($colorMap, back);
+			box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.25);
+			padding: 8px;
+			border-radius: 4px;
+			cursor: pointer;
+			text-align: inherit;
+			transition: 0.3s;
+			&:hover {
+				background-color: map-get($colorMap, pokegrayone);
+			}
+			.pokemon-favorite {
+				width: 20px;
+				height: 20px;
+			}
+		}
+	}
+}
+
+// pag
+.center {
+	display: flex;
+	justify-content: space-between;
+	padding: 0 10px;
+}
+.pagination {
+	display: flex;
+	align-items: center;
+	&__btn {
+		cursor: pointer;
+		border: none;
+		background-color: map-get($colorMap, back);
+		box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.25);
+		margin: 0 0.4rem;
+		transition: 0.3s;
+	}
+	&__btn:hover {
+		background-color: map-get($colorMap, pokegrayone);
+	}
+}
+
+// Loader
+
+.spinner {
+	border: 4px solid rgb(0, 0, 0.1);
+	width: 46px;
+	height: 46px;
+	border-radius: 50%;
+	border-left-color: #5b4c9a;
+	animation: spin 1s ease infinite;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+// not found
+.notfound {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	min-height: 100vh;
+	& h3 {
+		text-align: center;
+		font-size: 72px;
+		margin: 1rem 0;
+	}
+	& img {
+		height: 200px;
+	}
+	& p {
+		text-align: center;
+	}
+}
+
+// animation card
+@keyframes bounceIn {
+	from,
+	20%,
+	40%,
+	60%,
+	80%,
+	to {
+		-webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+		animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+	}
+
+	0% {
+		opacity: 0;
+		-webkit-transform: scale3d(0.3, 0.3, 0.3);
+		transform: scale3d(0.3, 0.3, 0.3);
+	}
+
+	20% {
+		-webkit-transform: scale3d(1.1, 1.1, 1.1);
+		transform: scale3d(1.1, 1.1, 1.1);
+	}
+
+	40% {
+		-webkit-transform: scale3d(0.9, 0.9, 0.9);
+		transform: scale3d(0.9, 0.9, 0.9);
+	}
+
+	60% {
+		opacity: 1;
+		-webkit-transform: scale3d(1.03, 1.03, 1.03);
+		transform: scale3d(1.03, 1.03, 1.03);
+	}
+
+	80% {
+		-webkit-transform: scale3d(0.97, 0.97, 0.97);
+		transform: scale3d(0.97, 0.97, 0.97);
+	}
+
+	to {
+		opacity: 1;
+		-webkit-transform: scale3d(1, 1, 1);
+		transform: scale3d(1, 1, 1);
+	}
+}
+
+.bounceIn {
+	-webkit-animation-duration: 0.75s;
+	animation-duration: 0.75s;
+	-webkit-animation-name: bounceIn;
+	animation-name: bounceIn;
+}

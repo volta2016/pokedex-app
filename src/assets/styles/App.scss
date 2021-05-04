@@ -1,0 +1,28 @@
+// traer las variables
+@import "./config.scss";
+// resetear los estilos por default
+@import "./themes/normalize.scss";
+// breakpoint
+@import "./themes/breakpoint.scss";
+// layout
+@import "./themes/layout.sass";
+// mixin y funciones
+@import "./themes/mixin-function.scss";
+// mixin y funciones
+@import "./themes/color.sass";
+// padding and margin
+@import "./themes/margin-padding.sass";
+// <H> <p> textos
+@import "./themes/text.sass";
+// header
+@import "./components/Header.scss";
+// footer
+@import "./components/Footer.scss";
+// Animation
+@import "./components/AnimationLayer.scss";
+//modal
+@import "./components/Modal.scss";
+//pokemon
+@import "./components/Pokemon.scss";
+//colors pokemon
+@import "./components/ColorsPokemons.scss";

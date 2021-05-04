@@ -1,0 +1,35 @@
+.fader {
+	-webkit-animation-name: fader;
+	-webkit-animation-duration: 1s;
+	animation-name: fader;
+  animation-duration: 1s;
+} 
+
+@keyframes fader {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  } 
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+.fadel {
+  -webkit-animation-name: fadel;
+  -webkit-animation-duration: 1s;
+  animation-name: fadel;
+  animation-duration: 1s;
+}
+   
+@keyframes fadel {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  } 
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}

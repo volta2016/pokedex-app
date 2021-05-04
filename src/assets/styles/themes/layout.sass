@@ -1,0 +1,149 @@
+.container
+    margin: auto
+    max-width: $max-width
+    height: 100%
+    padding: 30px;
+    @include media(sm) 
+        padding: 30px 15px;
+		
+
+.center-element 
+	display: flex;
+	justify-content: center;
+
+
+        
+.flex-start 
+    display: flex
+    align-items: flex-start
+    flex-wrap: wrap
+    
+
+.h 
+    height: 100%
+
+.flex 
+    display: flex
+    flex-wrap: wrap
+    justify-content: center;
+    align-items: center;
+
+.flexd-two 
+    flex-direction: row
+
+.imgres 
+    width: 100%
+    height: 100%
+    object-fit: contain
+    
+
+@mixin flex-d 
+    &-r 
+        flex-direction: row
+    
+    &-c 
+        flex-direction: column
+    
+
+.flex-d 
+    @include flex-d
+
+
+@mixin jc 
+    &-l 
+        justify-content: flex-start !important
+    
+    &-c 
+        justify-content: center !important
+    
+    &-r 
+        justify-content: flex-end !important
+    
+    &-sb 
+        justify-content: space-between !important
+    
+    &-sa 
+        justify-content: space-around !important
+     
+
+
+
+@mixin ai 
+    &-l 
+        align-items: flex-start !important
+    
+    &-c 
+        align-items: center !important
+    
+    &-r 
+        align-items: flex-end !important
+    
+    &-s 
+        align-items: stretch !important
+    
+    &-b 
+        align-items: baseline !important
+    
+
+
+.jc 
+    @include jc
+
+.ai 
+    @include ai
+
+// gap
+@mixin gap($i)
+    margin-left: (-$gutter*$i)/2
+    width: calc(100% + #{$gutter}*#{$i}) !important
+
+    & > [class^='col-']
+        padding: 0px ($gutter*($i))/2
+
+@mixin gapY($i)
+    & > [class^='col-']
+        padding-bottom: $gutter*$i
+
+@for $i from 0 through map-get($col, g)
+    .g-#{$i}  
+        @include gap($i)
+    .gy-#{$i}  
+        @include gapY($i)
+
+// col layout
+
+// percentage debe estar en la function
+@function columns($columns, $total-columns) 
+    @return percentage($columns / $total-columns) 
+ 
+
+@for $i from 0 through $maxcol 
+  .col-#{$i} 
+    width: columns($i,$maxcol)
+  
+.col
+    width: 100%
+// variable editable de 12
+
+.test
+    height: 200px
+
+@each $size in $vp
+    $key: nth($size, 1)
+    $value: nth($size, 2)
+    @media screen and(min-width: $value)
+        @for $i from 1 through $maxcol 
+            .col-#{$key}-#{$i}
+                width: columns($i,$maxcol)
+        @for $i from 0 through map-get($col, g)
+            .g-#{$key}-#{$i}  
+                @include gap($i)
+            .gy-#{$key}-#{$i}  
+                @include gapY($i)
+        .j-#{$key}
+            @include jc
+        .a-#{$key}
+            @include ai
+        
+
+

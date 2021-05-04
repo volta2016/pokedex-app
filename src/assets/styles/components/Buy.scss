@@ -1,0 +1,60 @@
+.contain-grid {
+	display: grid;
+	grid-template: 1fr / 25% 50% 25%;
+	grid-template-areas:
+		"layerone contain layertwo"
+		"layerone contain layertwo";
+	@include media(md) {
+		grid-template: 1fr auto / 50% 50%;
+		grid-template-areas:
+			"contain contain"
+			"layerone layertwo";
+	}
+	.layerone {
+		grid-area: layerone;
+	}
+	.contain {
+		grid-area: contain;
+	}
+
+	.layertwo {
+		grid-area: layertwo;
+	}
+}
+
+.buy {
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	position: relative;
+	height: 600px;
+	@include media(md) {
+		height: 875px;
+	}
+	@include media(sm) {
+		height: 820px;
+	}
+
+	&__labarra-ccu img {
+		width: 150px;
+		margin: 30px;
+	}
+	&__layer img {
+		max-height: 550px;
+		object-fit: contain;
+		width: 100%;
+		@include media(md) {
+			padding-top: 2rem;
+			max-height: 500px;
+		}
+	}
+	& p {
+		font-family: "Bungee", cursive;
+		color: map-get($colorMap, whiteaus);
+		font-size: 30px;
+		margin: 0 15px;
+		@include media(sm) {
+			font-size: 18px;
+		}
+	}
+}

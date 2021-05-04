@@ -1,0 +1,64 @@
+/*******************/
+/*****Typography****/
+/*******************/
+$textSizeTokens: map-get($tokens, "textSize");
+$textWeightTokens: map-get($tokens, "textWeight");
+
+@mixin font($size, $type: "body") {
+	@if ($type == "body") {
+		font-size: map-get($textSizeTokens, $size);
+		font-weight: map-get($textWeightTokens, "light");
+	}
+	@if ($type == "heading") {
+		font-size: map-get($textSizeTokens, $size);
+		font-weight: map-get($textWeightTokens, "bold");
+	}
+}
+
+@mixin flexBetCen {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin next-prev {
+	position: absolute;
+	top: 240px;
+	width: 30px;
+	height: 30px;
+	margin: -25px 20px;
+	font-size: 20px;
+	transition: 0.6s ease;
+	border-radius: 50%;
+	box-shadow: 2px 2px 5px #666;
+}
+
+@mixin lata {
+	position: relative;
+	background-repeat: no-repeat;
+	background-size: cover;
+	& img {
+		max-height: 650px;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		margin: auto;
+		object-fit: contain;
+		width: 100%;
+		@include media(lg) {
+			height: 700px;
+		}
+	}
+}
+
+@mixin containback {
+	display: none;
+	position: relative;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 700px;
+	@include media(md) {
+		display: block;
+	}
+}

@@ -1,0 +1,9 @@
+.footer {
+	background-color: map-get($colorMap, pokegraythree);
+	color: map-get($colorMap, white);
+	text-align: center;
+	& small {
+		padding: 2rem 0;
+		display: block;
+	}
+}
