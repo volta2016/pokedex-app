@@ -67,35 +67,3 @@
 		height: 16px;
 	}
 }
-
-// .hero {
-// 	position: relative;
-// 	font-family: "Bungee", Arial, Helvetica, sans-serif;
-// 	&__backaus {
-// 		background-repeat: no-repeat;
-// 		background-size: 100% 132px;
-// 		width: 100%;
-// 		height: 132px;
-// 		z-index: 2;
-// 		position: absolute;
-// 		text-align: center;
-// 		@include media(sm) {
-// 			visibility: hidden;
-// 		}
-// 		@include media(md) {
-// 			background-size: 100% 113px;
-// 		}
-
-// 		& img {
-// 			width: 200px;
-
-// 			@include media(md) {
-// 				width: 168px;
-// 			}
-// 		}
-// 	}
-// 	&__video {
-// 		width: 100%;
-// 		display: block;
-// 	}
-// }

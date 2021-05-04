@@ -38,5 +38,3 @@ export const getPokemonData = async (url) => {
 
 //promise all > espera un array de promesas lo que va hacer esperar ante de continuar
 //con nuestro code
-
-//necsisto la img, el tipo y otras cosas.
