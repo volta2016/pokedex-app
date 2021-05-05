@@ -20,6 +20,11 @@
 
 url [see project](https://pokedex-app-reactjs.netlify.app/).
 
+### clone project
+
+- you must copy the url of the button code
+- sass verion: 4.12.0 you can look in package.json
+
 ### Diagrams and global state of the App
 
 ![Diagrams and global state of the App](https://pokedex-app-reactjs.netlify.app/static/media/diagrams-context-solution.5ef10cc5.png)
