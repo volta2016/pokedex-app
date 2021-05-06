@@ -20,13 +20,16 @@ const Pokedex = () => {
 						<h2>Pokédex</h2>
 						<Pagination />
 					</div>
-					{loading && <Loader />}
-					<div className="pokedex-grid">
-						{pokemons &&
-							pokemons.map((pokemon, idx) => {
-								return <Pokemon key={pokemon.name} pokemon={pokemon} />;
-							})}
-					</div>
+					{loading ? (
+						<Loader />
+					) : (
+						<div className="pokedex-grid">
+							{pokemons &&
+								pokemons.map((pokemon, idx) => {
+									return <Pokemon key={pokemon.name} pokemon={pokemon} />;
+								})}
+						</div>
+					)}
 				</>
 			)}
 		</>

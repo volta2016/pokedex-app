@@ -7,9 +7,9 @@ export const PokedexContext = createContext();
 const PokedexContextProvider = ({ children }) => {
 	const [pokemons, setPokemons] = useState([]);
 	const [notFound, setNotFound] = useState(false);
-	const [getAllPokemons, , loading] = useFetch(API.all, {});
+	const [getAllPokemons] = useFetch(API.all, {});
 	const [getPokemon] = useFetch(API.single); // rename => pokemons
-
+	const [loading, setLoading] = useState(true);
 	const [page, setPage] = useState(0);
 	const [total, setTotal] = useState(0);
 	const [searching, setSearching] = useState(false);
@@ -25,6 +25,8 @@ const PokedexContextProvider = ({ children }) => {
 		const pokemonsResult = await Promise.all(promises);
 
 		setPokemons(pokemonsResult);
+		setLoading(false);
+		// console.log(pokemonsResult);
 		setTotal(Math.ceil(data.count / 25));
 		setNotFound(false);
 	};
@@ -50,18 +52,21 @@ const PokedexContextProvider = ({ children }) => {
 		if (!pokemon) {
 			return fetchPokemon();
 		}
+		setLoading(true);
 		setNotFound(false);
 		setSearching(true);
 		const results = await getPokemon({ pokemonName: pokemon });
 		if (!results) {
 			setNotFound(true);
+			setLoading(false);
 		} else {
 			setPokemons([results]);
+			console.log(results);
 			setNotFound(false);
-			// console.log(results);
 		}
 		setTotal(1);
 		setPage(0);
+		setLoading(false);
 		setSearching(false);
 	};
 
