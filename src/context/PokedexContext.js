@@ -9,12 +9,13 @@ const PokedexContextProvider = ({ children }) => {
 	const [notFound, setNotFound] = useState(false);
 	const [getAllPokemons] = useFetch(API.all, {});
 	const [getPokemon] = useFetch(API.single); // rename => pokemons
-	const [loading, setLoading] = useState(true);
+	const [loading, setLoading] = useState(false);
 	const [page, setPage] = useState(0);
 	const [total, setTotal] = useState(0);
 	const [searching, setSearching] = useState(false);
 
 	const fetchPokemon = async () => {
+		setLoading(true);
 		const data = await getAllPokemons({
 			limit: 25,
 			offset: 25 * page,
@@ -52,13 +53,11 @@ const PokedexContextProvider = ({ children }) => {
 		if (!pokemon) {
 			return fetchPokemon();
 		}
-		setLoading(true);
 		setNotFound(false);
 		setSearching(true);
 		const results = await getPokemon({ pokemonName: pokemon });
 		if (!results) {
 			setNotFound(true);
-			setLoading(false);
 		} else {
 			setPokemons([results]);
 			console.log(results);
@@ -66,7 +65,6 @@ const PokedexContextProvider = ({ children }) => {
 		}
 		setTotal(1);
 		setPage(0);
-		setLoading(false);
 		setSearching(false);
 	};
 

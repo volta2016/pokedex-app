@@ -16,7 +16,7 @@ export const useFetch = (
 
 			const response = await fetch(url, options);
 			const newData = await response[responseTo]();
-			console.log(newData);
+			// console.log(newData);
 			setData(newData);
 
 			return newData;
