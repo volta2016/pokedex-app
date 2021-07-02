@@ -1,7 +1,7 @@
 // ancho maximo template
 $gutter: 0.96rem;
 $max-width: 1250px;
-$font: unquote("'Lato', sans-serif");
+$font: unquote("'Raleway', sans-serif");
 $default-color: #050023;
 
 $no-line-height: 1;
@@ -27,6 +27,7 @@ $col: (
 
 // colores
 $colorMap: (
+	pokemon: #2d6ab3,
 	back: #f2f2f2,
 	pokeredbase: #f63b00,
 	pokered: #e1363a,

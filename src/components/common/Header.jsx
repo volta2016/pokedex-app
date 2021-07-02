@@ -2,7 +2,7 @@ import NavBar from "./../common/NavBar";
 
 const Header = () => {
 	return (
-		<header className="Header back-pokegraythree">
+		<header className="Header back-pokemon">
 			<div className="container">
 				<NavBar />
 			</div>
