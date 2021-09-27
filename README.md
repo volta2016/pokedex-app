@@ -18,7 +18,7 @@
 - React Router DOM
 - Custom Hook (useFetch, useModal)
 
-url [see project](https://pokedex-app-reactjs.netlify.app/).
+url [see project](https://pokedex-app-nine.vercel.app/).
 
 ### clone project
 
@@ -27,8 +27,8 @@ url [see project](https://pokedex-app-reactjs.netlify.app/).
 
 ### Diagrams and global state of the App
 
-![Diagrams and global state of the App](https://pokedex-app-reactjs.netlify.app/static/media/diagrams-context-solution.5ef10cc5.png)
+![Diagrams and global state of the App](https://pokedex-app-nine.vercel.app/static/media/diagrams-context-solution.5ef10cc5.png)
 
 ### 2 contexts that encompass our App
 
-![Context AppState](https://pokedex-app-reactjs.netlify.app/static/media/comunication-context.a2601c0a.png)
+![Context AppState](https://pokedex-app-nine.vercel.app/static/media/comunication-context.a2601c0a.png)

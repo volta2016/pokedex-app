@@ -10,6 +10,7 @@
 
 # production
 /build
+/object-process
 
 # misc
 .DS_Store
